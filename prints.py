@@ -77,9 +77,13 @@ def input_target_ip_scan_host():
     port = input("\n" + Fore.BLUE + Style.BRIGHT + ">>" + Style.RESET_ALL + " ")
     return target_ip, False, port
 
-def print_host_scan_result(result):
+def print_host_scan_result(result, target_ip):
     print(Fore.LIGHTBLACK_EX + Style.BRIGHT + "_"*65 + Style.RESET_ALL + "\n")
     print(Fore.LIGHTBLACK_EX + Style.BRIGHT + "Resultados do Scan" + Style.RESET_ALL)
+    for connection in result["scan"][target_ip]["tcp"]:
+        print("\n"+Fore.LIGHTBLACK_EX + Style.BRIGHT + "_"*65 + Style.RESET_ALL)
+        print(Fore.LIGHTBLACK_EX + Style.BRIGHT + "Porta: "+ Style.RESET_ALL + Fore.BLUE + Style.BRIGHT + str(connection) + Style.RESET_ALL)
+        print("\t" + Fore.LIGHTBLACK_EX + "Status: " + Style.RESET_ALL + connection["state"])
     ## print dos dados das portas:
     
 

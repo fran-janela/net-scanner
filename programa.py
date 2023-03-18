@@ -33,7 +33,7 @@ def main():
             print_host_scan_intro()
             target_ip, is_well_known_ports_scan, ports = input_target_ip_scan_host()
             result = get_host_scan(port_scanner, target_ip, is_well_known_ports_scan, ports)
-            print_host_scan_result(result)
+            print_host_scan_result(result, target_ip)
             wait_user_enter()
 
         # ------------------------ SAIR DO PROGRAMA ------------------------
