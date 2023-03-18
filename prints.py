@@ -15,6 +15,10 @@ def print_not_valid_option():
     print("\n" + Fore.RED + Style.BRIGHT + "Opção inválida!" + Style.RESET_ALL + "\n" + "Por favor, Tente novamente." + "\n")
     sleep(2)
 
+def print_error(error_text):
+    print("\n" + Fore.RED + Style.BRIGHT + "Erro!" + Style.RESET_ALL + "\n" + error_text + "\n" + "Por favor, Tente novamente." + "\n")
+    sleep(2)
+
 def print_good_bye():
     print("\n" + Fore.LIGHTBLACK_EX + Style.BRIGHT + "_"*65 + Style.RESET_ALL + "\n")
     print("Obrigado por usar o " + Fore.BLUE + Style.BRIGHT + "Net Scanner" + Style.RESET_ALL + "! Até à próxima.")
@@ -41,7 +45,7 @@ def input_target_ip_scan_network():
     return target_ip
 
 def print_elapsed_time(delta_time):
-    print(Fore.GREEN + Style.BRIGHT + "Ellapsed: " + Style.RESET_ALL + str(round(delta_time, 2)) + " segundos" + "\n")
+    print(Fore.GREEN + Style.BRIGHT + "Tempo: " + Style.RESET_ALL + str(round(delta_time, 2)) + " segundos" + "\n")
 
 def print_network_scan_result(hosts):
     print(Fore.LIGHTBLACK_EX + Style.BRIGHT + "_"*65 + Style.RESET_ALL)
@@ -83,13 +87,13 @@ def print_host_scan_result(result, target_ip):
     for connection in result["scan"][target_ip]["tcp"]:
         print("\n" + "_"*65)
         print("Porta: "+ Fore.BLUE + Style.BRIGHT + str(connection) + Style.RESET_ALL)
-        print("   " + "Status: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["state"] + Style.RESET_ALL)
-        print("   " + "Serviço: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["name"] + Style.RESET_ALL)
-        print("   " + "Versão: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["version"] + Style.RESET_ALL)
-        print("   " + "Produto: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["product"] + Style.RESET_ALL)
-        print("   " + "CPE: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["cpe"] + Style.RESET_ALL)
-        print("   " + "Extrainfo: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["extrainfo"] + Style.RESET_ALL)
-        print("   " + "Confiança: " + Style.BRIGHT + str(result["scan"][target_ip]["tcp"][connection]["conf"]) + Style.RESET_ALL)
+        print(" - " + "Status: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["state"] + Style.RESET_ALL)
+        print(" - " + "Serviço: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["name"] + Style.RESET_ALL)
+        print(" - " + "Versão: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["version"] + Style.RESET_ALL)
+        print(" - " + "Produto: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["product"] + Style.RESET_ALL)
+        print(" - " + "CPE: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["cpe"] + Style.RESET_ALL)
+        print(" - " + "Extrainfo: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["extrainfo"] + Style.RESET_ALL)
+        print(" - " + "Confiança: " + Style.BRIGHT + str(result["scan"][target_ip]["tcp"][connection]["conf"]) + Style.RESET_ALL)
     ## print dos dados das portas:
     
 
