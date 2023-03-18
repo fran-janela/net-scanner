@@ -82,7 +82,7 @@ def input_target_ip_scan_host():
     return target_ip, False, port
 
 def print_host_scan_result(result, target_ip):
-    for scaninfo in result["scaninfo"]:
+    for scaninfo in result["nmap"]["scaninfo"]:
         if scaninfo == "error":
             print_error("Nao foi possivel escanear a(s) porta(s) especificada(s)")
             return "error"
