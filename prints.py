@@ -81,9 +81,15 @@ def print_host_scan_result(result, target_ip):
     print(Fore.LIGHTBLACK_EX + Style.BRIGHT + "_"*65 + Style.RESET_ALL + "\n")
     print(Fore.LIGHTBLACK_EX + Style.BRIGHT + "Resultados do Scan" + Style.RESET_ALL)
     for connection in result["scan"][target_ip]["tcp"]:
-        print("\n"+Fore.LIGHTBLACK_EX + Style.BRIGHT + "_"*65 + Style.RESET_ALL)
-        print(Fore.LIGHTBLACK_EX + Style.BRIGHT + "Porta: "+ Style.RESET_ALL + Fore.BLUE + Style.BRIGHT + str(connection) + Style.RESET_ALL)
-        print("\t" + Fore.LIGHTBLACK_EX + "Status: " + Style.RESET_ALL + connection["state"])
+        print("\n" + "_"*65)
+        print("Porta: "+ Fore.BLUE + Style.BRIGHT + str(connection) + Style.RESET_ALL)
+        print("   " + "Status: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["state"] + Style.RESET_ALL)
+        print("   " + "Serviço: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["name"] + Style.RESET_ALL)
+        print("   " + "Versão: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["version"] + Style.RESET_ALL)
+        print("   " + "Produto: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["product"] + Style.RESET_ALL)
+        print("   " + "CPE: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["cpe"] + Style.RESET_ALL)
+        print("   " + "Extrainfo: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["extrainfo"] + Style.RESET_ALL)
+        print("   " + "Confiança: " + Style.BRIGHT + str(result["scan"][target_ip]["tcp"][connection]["conf"]) + Style.RESET_ALL)
     ## print dos dados das portas:
     
 
