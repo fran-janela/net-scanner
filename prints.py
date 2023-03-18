@@ -49,7 +49,7 @@ def print_elapsed_time(delta_time):
 
 def print_network_scan_result(hosts):
     print(Fore.LIGHTBLACK_EX + Style.BRIGHT + "_"*65 + Style.RESET_ALL)
-    print(Fore.LIGHTBLACK_EX + Style.BRIGHT + "Resultados do Scan" + Style.RESET_AL + "\n")
+    print(Fore.LIGHTBLACK_EX + Style.BRIGHT + "Resultados do Scan" + Style.RESET_ALL + "\n")
     print("IP" + "\t\t\t" + "MAC" + "\t\t\t" + "Hostname")
     print("-"*65)
     for host in hosts:
