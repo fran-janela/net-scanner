@@ -36,8 +36,9 @@ def main():
             if result is None:
                 print_error("Nao foi possivel escanear a(s) porta(s) especificada(s)")
                 continue
-            print_host_scan_result(result, target_ip)
-            wait_user_enter()
+            status = print_host_scan_result(result, target_ip)
+            if status == "success":
+                wait_user_enter()
 
         # ------------------------ SAIR DO PROGRAMA ------------------------
         elif opcao == "exit":
