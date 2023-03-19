@@ -53,7 +53,7 @@ def print_network_scan_result(hosts):
     print("IP" + "\t\t\t" + "MAC" + "\t\t\t" + "Hostname")
     print("-"*65)
     for host in hosts:
-        print(host['ip'] + "\t" + host['mac'] + "\t\t" + host['hostname'])
+        print(host['ip'] + "\t" + host['mac'] + "\t\t" + host['hostname'] if host['hostname'] != None else "Não encontrado")
     print("\n")
 
 def wait_user_enter():
