@@ -30,8 +30,10 @@ def get_host_scan(port_scanner, target_ip, is_well_known_ports_scan, ports):
         print("\nEscaneando Well Known Ports... (isto pode demorar)\n")
 
         start_time = time.time()
-        WELL_KNOW_PORTS = "0,1,5,7,18,20,21,22,23,25,29,37,42,43,49,53,69,70,79,80,88,106,110,111,113,119,135,137,138,139,143,161,162,179,194,389,443,445,465,512,513,514,515,530,531,532,540,542,544,546,547,548,554,587,631,636,873,902,989,990,993,995,1025"
-        result = port_scanner.scan(target_ip, arguments=f"-sV -p {WELL_KNOW_PORTS}")
+
+        WELL_KNOWN_PORTS_IDS = "20,21,22,23,25,53,80,110,119,123,143,161,194,443,445,465,514,587,631,873,993,995,1080,1194,1433,1434,1521,1723,3306,3389,5432,5900,5901,5902,5903,6379,8080,8443,9000,9090,9091"
+
+        result = port_scanner.scan(target_ip, arguments=f"-sV -p {WELL_KNOWN_PORTS_IDS}")
         end_time = time.time()
 
         print("Feito!")

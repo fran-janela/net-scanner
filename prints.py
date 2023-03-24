@@ -82,6 +82,49 @@ def input_target_ip_scan_host():
     return target_ip, False, port
 
 def print_host_scan_result(result, target_ip):
+    WELL_KNOW_PORTS = {
+        20: 'FTP (File Transfer Protocol)',
+        21: 'FTP (File Transfer Protocol)',
+        22: 'SSH (Secure Shell)',
+        23: 'Telnet',
+        25: 'SMTP (Simple Mail Transfer Protocol)',
+        53: 'DNS (Domain Name System)',
+        80: 'HTTP (Hypertext Transfer Protocol)',
+        110: 'POP3 (Post Office Protocol version 3)',
+        119: 'NNTP (Network News Transfer Protocol)',
+        123: 'NTP (Network Time Protocol)',
+        143: 'IMAP (Internet Message Access Protocol)',
+        161: 'SNMP (Simple Network Management Protocol)',
+        194: 'IRC (Internet Relay Chat)',
+        443: 'HTTPS (HTTP Secure)',
+        445: 'SMB (Server Message Block)',
+        465: 'SMTPS (Simple Mail Transfer Protocol Secure)',
+        514: 'Syslog',
+        587: 'SMTP (Mail Submission)',
+        631: 'IPP (Internet Printing Protocol)',
+        873: 'rsync',
+        993: 'IMAPS (Internet Message Access Protocol Secure)',
+        995: 'POP3S (Post Office Protocol version 3 Secure)',
+        1080: 'SOCKS (SOCKetS)',
+        1194: 'OpenVPN',
+        1433: 'Microsoft SQL Server',
+        1434: 'Microsoft SQL Server',
+        1521: 'Oracle',
+        1723: 'PPTP (Point-to-Point Tunneling Protocol)',
+        3306: 'MySQL',
+        3389: 'RDP (Remote Desktop Protocol)',
+        5432: 'PostgreSQL',
+        5900: 'VNC (Virtual Network Computing)',
+        5901: 'VNC (Virtual Network Computing)',
+        5902: 'VNC (Virtual Network Computing)',
+        5903: 'VNC (Virtual Network Computing)',
+        6379: 'Redis',
+        8080: 'HTTP Alternate (http_alt)',
+        8443: 'HTTPS Alternate (https_alt)',
+        9000: 'Jenkins',
+        9090: 'HTTP Alternate (http_alt)',
+        9091: 'HTTP Alternate (http_alt)'
+    }
     for scaninfo in result["nmap"]["scaninfo"]:
         if scaninfo == "error":
             print_error("Nao foi possivel escanear a(s) porta(s) especificada(s)")
@@ -98,6 +141,8 @@ def print_host_scan_result(result, target_ip):
         print(" - " + "CPE: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["cpe"] + Style.RESET_ALL)
         print(" - " + "Extrainfo: " + Style.BRIGHT + result["scan"][target_ip]["tcp"][connection]["extrainfo"] + Style.RESET_ALL)
         print(" - " + "Confiança: " + Style.BRIGHT + str(result["scan"][target_ip]["tcp"][connection]["conf"]) + Style.RESET_ALL)
+        if connection in WELL_KNOW_PORTS:
+            print(" - " + "Well Known Port for: " + Style.BRIGHT + WELL_KNOW_PORTS[connection] + Style.RESET_ALL)
     return "success"
     
 
