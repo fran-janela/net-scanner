@@ -16,3 +16,6 @@ Este é um simples programa que executa duas funções principais:
 
 ## Como usar
 
+1. Clonar o repositório para uma máquina com nmap instalado.
+2. Instalar as dependências de python pelo `requirements.txt`.
+3. Rodar em `root` o arquivo python.py
